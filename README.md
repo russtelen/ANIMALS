@@ -72,15 +72,15 @@ Sample response:
 Sample body request:
 
     {
-    "animal" : {
-        "animalId": 2,
-        "animalDesc": "Kinkajous are small, golden brown, tree-dwelling mammals that are native to Central and South American rainforests. Also known as honey bears, kinkajous have become popular in the exotic pet trade. They are generally friendly, playful, and curious when raised in captivity. However, they are easy to startle and might become aggressive with their owners. Plus, they can be difficult to house, as they require lots of room for exercise. And they need a varied diet that mimics what they would eat in the wild. Overall, this is a high-maintenance pet that requires a knowledgable and committed owner.",
-        "imageUrl": "https://www.thesprucepets.com/thmb/TuZWEEBtLWJLu5NBd9OVrNOyVIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/200207822-001-56a2bcde3df78cf7727960a2.jpg",
-        "animalName": "Kinkajou (Honey Bear)",
-        "residence": "South America",
-        "sanctuary": "Lone Pine Koala Sanctuary",
-        "animalType": "mammal"
-    }
+        "animal" : {
+            "animalId": 2,
+            "animalDesc": "Kinkajous are small, golden brown, tree-dwelling mammals that are native to Central and South American rainforests. Also known as honey bears, kinkajous have become popular in the exotic pet trade. They are generally friendly, playful, and curious when raised in captivity. However, they are easy to startle and might become aggressive with their owners. Plus, they can be difficult to house, as they require lots of room for exercise. And they need a varied diet that mimics what they would eat in the wild. Overall, this is a high-maintenance pet that requires a knowledgable and committed owner.",
+            "imageUrl": "https://www.thesprucepets.com/thmb/TuZWEEBtLWJLu5NBd9OVrNOyVIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/200207822-001-56a2bcde3df78cf7727960a2.jpg",
+            "animalName": "Kinkajou (Honey Bear)",
+            "residence": "South America",
+            "sanctuary": "Lone Pine Koala Sanctuary",
+            "animalType": "mammal"
+        }
     }
 
 <hr>
@@ -101,14 +101,14 @@ Sample response:
 Sample body request:
 
     {
-    "animal": {
-        "animalDesc": "Kinkajous are small, golden brown, tree-dwelling mammals that are native to Central and South American rainforests. Also known as honey bears, kinkajous have become popular in the exotic pet trade. They are generally friendly, playful, and curious when raised in captivity. However, they are easy to startle and might become aggressive with their owners. Plus, they can be difficult to house, as they require lots of room for exercise. And they need a varied diet that mimics what they would eat in the wild. Overall, this is a high-maintenance pet that requires a knowledgable and committed owner.",
-        "imageUrl": "https://www.thesprucepets.com/thmb/TuZWEEBtLWJLu5NBd9OVrNOyVIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/200207822-001-56a2bcde3df78cf7727960a2.jpg",
-        "animalName": "Kinkajou (Honey Bear)",
-        "residence": "South America",
-        "sanctuary": "Lone Pine Koala Sanctuary",
-        "animalType": "aviary"
-    }
+        "animal": {
+            "animalDesc": "Kinkajous are small, golden brown, tree-dwelling mammals that are native to Central and South American rainforests. Also known as honey bears, kinkajous have become popular in the exotic pet trade. They are generally friendly, playful, and curious when raised in captivity. However, they are easy to startle and might become aggressive with their owners. Plus, they can be difficult to house, as they require lots of room for exercise. And they need a varied diet that mimics what they would eat in the wild. Overall, this is a high-maintenance pet that requires a knowledgable and committed owner.",
+            "imageUrl": "https://www.thesprucepets.com/thmb/TuZWEEBtLWJLu5NBd9OVrNOyVIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/200207822-001-56a2bcde3df78cf7727960a2.jpg",
+            "animalName": "Kinkajou (Honey Bear)",
+            "residence": "South America",
+            "sanctuary": "Lone Pine Koala Sanctuary",
+            "animalType": "aviary"
+        }
     }
 
 <hr>
