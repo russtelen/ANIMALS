@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# Animals App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Documentation
 
-## Available Scripts
+### GET `/animals` - Get all animals
 
-In the project directory, you can run:
+Sample Response:
 
-### `npm start`
+    {
+        "statusCode": 200,
+        "data": {
+            "Items": [
+                {
+                    "imageUrl": "https://www.thesprucepets.com/thmb/TuZWEEBtLWJLu5NBd9OVrNOyVIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/200207822-001-56a2bcde3df78cf7727960a2.jpg",
+                    "animalDesc": "Kinkajous are small, golden brown, tree-dwelling mammals that are native to Central and South American rainforests. Also known as honey bears, kinkajous have become popular in the exotic pet trade. They are generally friendly, playful, and curious when raised in captivity. However, they are easy to startle and might become aggressive with their owners. Plus, they can be difficult to house, as they require lots of room for exercise. And they need a varied diet that mimics what they would eat in the wild. Overall, this is a high-maintenance pet that requires a knowledgable and committed owner.",
+                    "animalType": "mammal",
+                    "animalId": 1,
+                    "residence": "South America",
+                    "animalName": "Kinkajou (Honey Bear)",
+                    "sanctuary": "Lone Pine Koala Sanctuary"
+                },
+                {
+                    "imageUrl": "https://www.thesprucepets.com/thmb/TuZWEEBtLWJLu5NBd9OVrNOyVIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/200207822-001-56a2bcde3df78cf7727960a2.jpg",
+                    "animalDesc": "Kinkajous are small, golden brown, tree-dwelling mammals that are native to Central and South American rainforests. Also known as honey bears, kinkajous have become popular in the exotic pet trade. They are generally friendly, playful, and curious when raised in captivity. However, they are easy to startle and might become aggressive with their owners. Plus, they can be difficult to house, as they require lots of room for exercise. And they need a varied diet that mimics what they would eat in the wild. Overall, this is a high-maintenance pet that requires a knowledgable and committed owner.",
+                    "animalType": "mammal",
+                    "animalId": 2,
+                    "residence": "South America",
+                    "animalName": "Kinkajou (Honey Bear)",
+                    "sanctuary": "Lone Pine Koala Sanctuary"
+                }
+            ],
+            "Count": 2,
+            "ScannedCount": 2
+        }
+    }
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<hr>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### GET `/animals/:animalID` - Get animal by ID
 
-### `npm test`
+Sample response:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    {
+        "imageUrl": "https://www.thesprucepets.com/thmb/TuZWEEBtLWJLu5NBd9OVrNOyVIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/200207822-001-56a2bcde3df78cf7727960a2.jpg",
+        "animalDesc": "Kinkajous are small, golden brown, tree-dwelling mammals that are native to Central and South American rainforests. Also known as honey bears, kinkajous have become popular in the exotic pet trade. They are generally friendly, playful, and curious when raised in captivity. However, they are easy to startle and might become aggressive with their owners. Plus, they can be difficult to house, as they require lots of room for exercise. And they need a varied diet that mimics what they would eat in the wild. Overall, this is a high-maintenance pet that requires a knowledgable and committed owner.",
+        "animalType": "mammal",
+        "animalId": 1,
+        "residence": "South America",
+        "animalName": "Kinkajou (Honey Bear)",
+        "sanctuary": "Lone Pine Koala Sanctuary"
+    }
 
-### `npm run build`
+<hr>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### POST `/animals/:animalID` - Add animal
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Sample response:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    {
+        "message": "Successfully added animal",
+        "animal": {
+            "animalId": 2,
+            "animalDesc": "Kinkajous are small, golden brown, tree-dwelling mammals that are native to Central and South American rainforests. Also known as honey bears, kinkajous have become popular in the exotic pet trade. They are generally friendly, playful, and curious when raised in captivity. However, they are easy to startle and might become aggressive with their owners. Plus, they can be difficult to house, as they require lots of room for exercise. And they need a varied diet that mimics what they would eat in the wild. Overall, this is a high-maintenance pet that requires a knowledgable and committed owner.",
+            "imageUrl": "https://www.thesprucepets.com/thmb/TuZWEEBtLWJLu5NBd9OVrNOyVIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/200207822-001-56a2bcde3df78cf7727960a2.jpg",
+            "animalName": "Kinkajou (Honey Bear)",
+            "residence": "South America",
+            "sanctuary": "Lone Pine Koala Sanctuary",
+            "animalType": "mammal"
+        }
+    }
 
-### `npm run eject`
+Sample body request:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    {
+    "animal" : {
+        "animalId": 2,
+        "animalDesc": "Kinkajous are small, golden brown, tree-dwelling mammals that are native to Central and South American rainforests. Also known as honey bears, kinkajous have become popular in the exotic pet trade. They are generally friendly, playful, and curious when raised in captivity. However, they are easy to startle and might become aggressive with their owners. Plus, they can be difficult to house, as they require lots of room for exercise. And they need a varied diet that mimics what they would eat in the wild. Overall, this is a high-maintenance pet that requires a knowledgable and committed owner.",
+        "imageUrl": "https://www.thesprucepets.com/thmb/TuZWEEBtLWJLu5NBd9OVrNOyVIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/200207822-001-56a2bcde3df78cf7727960a2.jpg",
+        "animalName": "Kinkajou (Honey Bear)",
+        "residence": "South America",
+        "sanctuary": "Lone Pine Koala Sanctuary",
+        "animalType": "mammal"
+    }
+    }
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<hr>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### PUT `/animals/:animalID` - Update animal
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Sample response:
 
-## Learn More
+    {
+        ":des": "Kinkajous are small, golden brown, tree-dwelling mammals that are native to Central and South American rainforests. Also known as honey bears, kinkajous have become popular in the exotic pet trade. They are generally friendly, playful, and curious when raised in captivity. However, they are easy to startle and might become aggressive with their owners. Plus, they can be difficult to house, as they require lots of room for exercise. And they need a varied diet that mimics what they would eat in the wild. Overall, this is a high-maintenance pet that requires a knowledgable and committed owner.",
+        ":img": "https://www.thesprucepets.com/thmb/TuZWEEBtLWJLu5NBd9OVrNOyVIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/200207822-001-56a2bcde3df78cf7727960a2.jpg",
+        ":nm": "Kinkajou (Honey Bear)",
+        ":res": "South America",
+        ":sanc": "Lone Pine Koala Sanctuary",
+        ":tp": "aviary"
+    }
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Sample body request:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    {
+    "animal": {
+        "animalDesc": "Kinkajous are small, golden brown, tree-dwelling mammals that are native to Central and South American rainforests. Also known as honey bears, kinkajous have become popular in the exotic pet trade. They are generally friendly, playful, and curious when raised in captivity. However, they are easy to startle and might become aggressive with their owners. Plus, they can be difficult to house, as they require lots of room for exercise. And they need a varied diet that mimics what they would eat in the wild. Overall, this is a high-maintenance pet that requires a knowledgable and committed owner.",
+        "imageUrl": "https://www.thesprucepets.com/thmb/TuZWEEBtLWJLu5NBd9OVrNOyVIk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/200207822-001-56a2bcde3df78cf7727960a2.jpg",
+        "animalName": "Kinkajou (Honey Bear)",
+        "residence": "South America",
+        "sanctuary": "Lone Pine Koala Sanctuary",
+        "animalType": "aviary"
+    }
+    }
 
-### Code Splitting
+<hr>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### DELETE `/animals/:animalID` - Delete animal
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Deletes animal. No need for body request. Pass in `:animalId` (Int) in params
