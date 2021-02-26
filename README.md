@@ -1,5 +1,14 @@
 # Animals App
 
+## About
+
+    Full stack app built with AWS and React
+
+    AWS Services Used:
+    - DynamoDB
+    - Lambda Functions
+    - API Gateway
+
 ## Documentation
 
 ### GET `/animals` - Get all animals
