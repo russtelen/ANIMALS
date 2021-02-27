@@ -1,12 +1,11 @@
 import axios from "axios";
-import env from "react-dotenv";
+require("dotenv").config();
 
-const BASE_URL = env.REACT_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 // Get all animals
 export const getAllAnimals = async () => {
   const res = await axios.get(`${BASE_URL}/animals`);
-
   const data = res.data.data.Items;
 
   return data;
