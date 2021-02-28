@@ -1,11 +1,11 @@
 import "./styles/App.css";
-import { getAllAnimals } from "./network";
+import Interface from './Interface'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Animalz</p>
+        <Interface />
       </header>
     </div>
   );
