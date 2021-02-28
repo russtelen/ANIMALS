@@ -1,12 +1,11 @@
-import logo from "./logo.svg";
-import "./App.css";
+import "./styles/App.css";
 import { getAllAnimals } from "./network";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>Animals</p>
+        <p>Animalz</p>
       </header>
     </div>
   );
