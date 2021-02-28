@@ -11,7 +11,7 @@ export const getAllAnimals = async () => {
   return data;
 };
 
-// Get animal by ID
+// Get animal by Id
 export const getAnimalById = async ({ animalId }) => {
   const res = await axios.get(`${BASE_URL}/animals/${animalId}`);
   const data = res.data;
@@ -46,7 +46,7 @@ export const createAnimal = async ({
   return res;
 };
 
-// Update animal by id
+// Update animal by Id
 export const updateAnimal = async ({
   animalId,
   animalDesc,
