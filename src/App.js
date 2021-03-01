@@ -1,13 +1,12 @@
 import "./styles/App.css";
-import { getAllAnimals } from "./network";
+import Interface from './Interface'
+import { AnimalsProvider } from './context/Animals'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Animalz</p>
-      </header>
-    </div>
+    <AnimalsProvider>
+      <Interface />
+    </AnimalsProvider>
   );
 }
 
