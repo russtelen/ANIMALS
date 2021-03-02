@@ -5,7 +5,6 @@ import AnimalFormCtrl from '../controllers/AnimalFormCtrl'
 export default function Home() {
   return (
     <>
-      <p>Home</p>
       <AnimalFormCtrl />
       <AnimalsTableCtrl />
     </>
