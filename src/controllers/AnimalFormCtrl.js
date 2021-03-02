@@ -57,7 +57,7 @@ export default function AnimalFormCtrl() {
   const handleInputChange = (event) => {
     event.preventDefault()
     const { name, value } = event.target;
-    setAnimal({...animal, [name]: value})
+    setAnimal({...animalData, [name]: value})
   }
 
   const handleSubmit = (event) => {
