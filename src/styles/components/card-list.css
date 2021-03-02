@@ -1,0 +1,9 @@
+.card__list {
+  padding: 0;
+  list-style: none;
+  /* -webkit-box-shadow: 0px 1px 7px 5px rgba(0,0,0,0.125); 
+  box-shadow: 0px 1px 7px 5px rgba(0,0,0,0.125); */
+  border: solid 2px #333;
+  margin: 0;
+  background: #262626;
+}

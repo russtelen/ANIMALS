@@ -1,27 +1,15 @@
 import React from 'react'
+import AnimalCard from './AnimalCard'
+import '../styles/components/card-list.css'
 
-export default function AnimalsTable({animals}) {
+export default function AnimalsTable({animals, selectAnimal, setEditMode, handleDelete}) {
   return (
-    <div>
-      <h2>Students</h2>
-      <table>
-          <thead>
-              <tr>
-                  <th>Animal Name</th>
-                  <th>Residence</th>
-                  <th>Sanctuary</th>
-                </tr>
-            </thead>
-            <tbody>
-                { animals?.map(animal =>
-                <tr key={animal.animalId}>
-                    <td>{animal.animalName}</td>
-                    <td>{animal.residence}</td>
-                    <td>{animal.sanctuary}</td>
-                </tr>
-                )}
-            </tbody>
-        </table>
-    </div>
+    <ul className="card__list">
+      {
+        animals?.map((a, index) => (
+          <AnimalCard animal={a} key={index} selectAnimal={selectAnimal} setEditMode={setEditMode} handleDelete={handleDelete}/>
+        ))
+      }
+    </ul>
   )
 }

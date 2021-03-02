@@ -29,10 +29,8 @@ export const createAnimal = async ({
   sanctuary,
   animalType,
 }) => {
-  const res = await axios({
-    method: "post",
-    url: `${BASE_URL}/animals`,
-    data: {
+  const res = await axios.post(`${BASE_URL}/animals`,{
+    animal: {
       animalId,
       animalDesc,
       imageUrl,
@@ -40,11 +38,12 @@ export const createAnimal = async ({
       residence,
       sanctuary,
       animalType,
-    },
-  });
+    }
+  })
 
-  return res;
-};
+  return res.data
+}
+
 
 // Update animal by Id
 export const updateAnimal = async ({
@@ -60,17 +59,19 @@ export const updateAnimal = async ({
     method: "put",
     url: `${BASE_URL}/animals/${animalId}`,
     data: {
-      animalId,
-      animalDesc,
-      imageUrl,
-      animalName,
-      residence,
-      sanctuary,
-      animalType,
+      animal: {
+        animalId,
+        animalDesc,
+        imageUrl,
+        animalName,
+        residence,
+        sanctuary,
+        animalType,
+      }
     },
   });
 
-  return res;
+  return res.data
 };
 
 // Delete animal
