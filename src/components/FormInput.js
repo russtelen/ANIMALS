@@ -1,14 +1,13 @@
 import React from 'react'
 import { camelize, capitalize } from '../utility'
+import '../styles/components/form-inputs.css'
 
 export default function FormInput({label, type, onChange, value}) {
   return (
-    <fieldset>
-      <label>{capitalize(label)}</label>
+    <fieldset className={value.length > 0 ? 'focused' : ''}>
       {
         type.toLowerCase() === 'textarea' ?
           <textarea 
-            placeholder={capitalize(label)} 
             name={camelize(label)} 
             onChange={(event) => onChange(event)} 
             value={value} 
@@ -16,12 +15,13 @@ export default function FormInput({label, type, onChange, value}) {
         :
           <input 
             type={type} 
-            placeholder={capitalize(label)} 
             name={camelize(label)} 
             onChange={(event) => onChange(event)} 
             value={value}
           />
       }
+      <span className="selector"></span>
+      <label>{capitalize(label)}</label>
     </fieldset>
   )
 }

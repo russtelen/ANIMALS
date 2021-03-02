@@ -1,10 +1,11 @@
 import React from 'react'
 import FormInput from './FormInput'
 import { camelize } from '../utility'
+import '../styles/components/forms.css'
 
 export default function AnimalForm({ stateData, fields, onChange, onSubmit }) {
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} style={{maxWidth: 350}}>
       {
         fields.map((f, index) => (
           <FormInput
@@ -16,6 +17,7 @@ export default function AnimalForm({ stateData, fields, onChange, onSubmit }) {
           />
         ))
       }
+      <button type="submit">Submit</button>
     </form>
   )
 }
