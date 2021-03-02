@@ -1,6 +1,7 @@
 :root {
   --highlight: #0072ff;
   --secondaryhighlight: #599ef2;
+  --danger: #df4759;
 }
 
 body {

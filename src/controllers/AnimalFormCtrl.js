@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Form from '../components/Form'
 import { camelize } from '../utility'
+import { createAnimal, updateAnimal } from '../network'
+import { v4 as uuid } from 'uuid'
+import { useAnimals } from '../context/Animals'
 
 // Initialize fields with an input type.
 // ** Current Limitations **
@@ -9,7 +12,7 @@ import { camelize } from '../utility'
 
 const fields = [
   {
-    label: "Description",
+    label: "Animal Desc",
     type: "textarea",
   },
   {
@@ -34,8 +37,10 @@ const fields = [
   },
 ]
 
-export default function AnimalFormCtrl() {
-  let animal = {}
+export default function AnimalFormCtrl({setEditMode, animalProp}) {
+  const AnimalsContext = useAnimals()
+  const { queryAllAnimals } = AnimalsContext
+  let animal = {};
 
   /* 
     Map through fields and assign fields to a state object, initialize fields as empty strings in state.
@@ -48,11 +53,35 @@ export default function AnimalFormCtrl() {
     }
   */ 
   fields.forEach(f => {
-    animal[`${camelize(f.label)}`] = ''
+    animal[`${camelize(f.label)}`] = '';
   })
 
+  const initialState = animalProp ?? animal;
+
   // animalDate state computed from fields data above.
-  const [animalData, setAnimal] = useState(animal);
+  const [animalData, setAnimal] = useState(initialState);
+
+  const addAnimal = async () => {
+    try {
+      const object = ({...animalData, animalId: uuid()})
+      const result = await createAnimal(object)
+      console.log(result)
+      queryAllAnimals()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const patchAnimal = async () => {
+    try {
+      const object = ({...animalData, animalId: animalProp.animalId})
+      const result = await updateAnimal(object)
+      console.log(result)
+      queryAllAnimals()
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   const handleInputChange = (event) => {
     event.preventDefault()
@@ -62,10 +91,13 @@ export default function AnimalFormCtrl() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(animalData)
+    animalProp && animalProp.animalId ?
+      patchAnimal()
+    :
+      addAnimal()
   }
 
   return (
-    <Form stateData={animalData} fields={fields} onChange={handleInputChange} onSubmit={handleSubmit}/>
+    <Form stateData={animalData} fields={fields} onChange={handleInputChange} onSubmit={handleSubmit} setEditMode={setEditMode}/>
   )
 }

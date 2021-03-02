@@ -18,3 +18,13 @@ button[type="submit"]:focus,
 button[type="submit"]:active {
   filter: brightness(125%);
 } 
+
+.form__body {
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+form {
+  border: solid 2px #333;
+  background: #262626;
+}

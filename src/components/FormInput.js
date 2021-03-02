@@ -10,7 +10,9 @@ export default function FormInput({label, type, onChange, value}) {
           <textarea 
             name={camelize(label)} 
             onChange={(event) => onChange(event)} 
-            value={value} 
+            value={value}
+            rows="5"
+            id={camelize(label)} 
           />
         :
           <input 
@@ -18,10 +20,11 @@ export default function FormInput({label, type, onChange, value}) {
             name={camelize(label)} 
             onChange={(event) => onChange(event)} 
             value={value}
+            id={camelize(label)}
           />
       }
       <span className="selector"></span>
-      <label>{capitalize(label)}</label>
+      <label htmlFor={camelize(label)}>{capitalize(label)}</label>
     </fieldset>
   )
 }

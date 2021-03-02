@@ -1,0 +1,138 @@
+.card {
+  margin: 20px;
+  position: relative;
+  padding: 17px 0;
+  padding-left: 30px;
+  border-bottom: 1px solid #333;
+}
+
+.card__header{
+  color: white;
+  font-size: 20px;
+  margin: 7px 0;
+  margin-top: 0;
+}
+
+.card__meta {
+  margin: 7px 0;
+  color: white;
+}
+
+.card__meta svg {
+  fill: var(--danger);
+}
+
+.card__meta.id {
+  color: #ccc;
+  font-size: 12px;
+}
+
+.card__img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  border: 3px solid var(--highlight);
+  right: calc(100% - 20px);
+}
+
+.card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+span.card__info {
+  border: 2px solid #333;
+  background: #191919;
+  border-radius: 3px;
+  padding: 3px 6px;
+  display: inline-block;
+  color: #686868;
+}
+
+.flex {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+.card__actions button {
+  outline: none;
+  border: none;
+  font-size: 14px;
+  padding: 6px 12px;
+  display: inline-block;
+  margin-left: 10px;
+  border-radius: 3px;
+  color: white;
+  transition: .2s ease-in-out;
+  cursor: pointer;
+}
+
+.card__actions button:hover,
+.card__actions button:focus,
+.card__actions button:active {
+  filter: brightness(125%);
+}
+
+.card__actions button.primary {
+  background-color: var(--highlight);
+}
+
+.card__actions button.danger {
+  background-color: var(--danger);
+}
+
+.detail__card {
+  border: solid 2px #333;
+  border-radius: 3px;
+  overflow: hidden;
+  background: #262626;
+}
+
+.detail__body {
+  padding: 7px 10px;
+}
+
+.detail__description {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #333;
+  color: white;
+  padding: 3px;
+}
+
+.detail__img {
+  height: 175px;
+}
+
+.detail__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card__actions.detail {
+  padding: 7px 10px;
+  display: flex;
+  border-top: 2px solid #333;
+}
+
+.card__actions.detail button {
+  width: 50%;
+  color: #333;
+}
+
+.card__actions.detail button.danger {
+  background: none;
+  border: 2px solid var(--danger);
+  color: var(--danger);
+}
+
+.card__actions.detail button.primary {
+  background: none;
+  border: 2px solid var(--highlight);
+  color: var(--highlight);
+}
