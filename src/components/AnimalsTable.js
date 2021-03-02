@@ -3,7 +3,7 @@ import React from 'react'
 export default function AnimalsTable({animals}) {
   return (
     <div>
-      <h2>Students</h2>
+      <h2>Animals</h2>
       <table>
           <thead>
               <tr>
