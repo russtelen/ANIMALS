@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/components/card.css'
+import '../../styles/components/card.css'
 
 export default function AnimalDetail({animal, clearAnimal, setEditMode}) {
   return (

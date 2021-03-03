@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import Form from '../components/Form'
+import React, { useState } from 'react'
+import Form from '../components/form/Form'
 import { camelize } from '../utility'
 import { createAnimal, updateAnimal } from '../network'
 import { v4 as uuid } from 'uuid'

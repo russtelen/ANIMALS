@@ -1,6 +1,6 @@
 import React from 'react'
-import { Pin } from '../icons'
-import '../styles/components/card.css'
+import { Pin } from '../../icons'
+import '../../styles/components/card.css'
 
 export default function AnimalCard({animal, selectAnimal, setEditMode, handleDelete}) {
   return (
