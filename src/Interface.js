@@ -1,4 +1,5 @@
 import { Switch, Route, Redirect } from "react-router-dom";
+import Header from './components/Header'
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Home from './pages/Home'
@@ -11,10 +12,12 @@ const PrivateRoute = ({path, children}) => (
 
 export default function Interface() {
   return (
+  <>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
     </Switch>
+  </>
   )
 }

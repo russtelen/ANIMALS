@@ -1,7 +1,6 @@
 header {
-  background: var(--highlight);
-  border-bottom: 2px solid var(--secondaryhighlight);
-  padding: 16px 20px;
+  /* background: var(--highlight);
+  border-bottom: 2px solid var(--secondaryhighlight); */
   -webkit-box-shadow: 0px 1px 15px 5px rgba(0,0,0,0.125); 
   box-shadow: 0px 1px 15px 5px rgba(0,0,0,0.125);
 }

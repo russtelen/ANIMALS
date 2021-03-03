@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import NavBar from '../NavBar'
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, TextField, Typography } from '@material-ui/core';
 
@@ -15,7 +14,6 @@ export default function Login() {
 
   return (
     <div>
-      <NavBar/>
       <div className={classes.root}>
         <Typography variant="h6">Login</Typography>
         <form onSubmit={submitForm}>
