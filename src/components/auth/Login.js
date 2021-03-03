@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px 0'
   },
   meta: {
-    background: '#161616',
+    background: '#202020',
     marginTop: -2,
     border: '2px solid #333'
   },

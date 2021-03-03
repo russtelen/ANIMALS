@@ -1,8 +1,8 @@
 .card {
-  margin: 20px;
+  /* margin: 0 20px; */
   position: relative;
-  padding: 17px 0;
-  padding-left: 30px;
+  display: flex;
+  /* padding: 17px 0; */
   border-bottom: 1px solid #333;
 }
 
@@ -28,12 +28,12 @@
 }
 
 .card__img {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
+  height: auto;
+  width: 20%;
+  min-width: 150px;
+  margin-right: 20px;
   overflow: hidden;
-  position: absolute;
-  border: 3px solid var(--highlight);
+  /* border: 3px solid #333; */
   right: calc(100% - 20px);
 }
 
@@ -69,6 +69,10 @@ span.card__info {
   color: white;
   transition: .2s ease-in-out;
   cursor: pointer;
+}
+
+.card__actions > button:first-child {
+  margin-left: 0;
 }
 
 .card__actions button:hover,
