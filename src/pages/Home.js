@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import AnimalsTableCtrl from '../controllers/AnimalsTableCtrl'
+import { Link } from 'react-router-dom';
+import NavBar from '../components/NavBar';
 import AnimalFormCtrl from '../controllers/AnimalFormCtrl'
 import AnimalDetailCtrl from '../controllers/AnimalDetailCtrl'
 import { useAnimals } from '../context/Animals'
@@ -22,6 +24,7 @@ export default function Home() {
 
   return (
     <>
+      <NavBar/>
       <div className="wrap">
         <div className="column main">
           <AnimalsTableCtrl 
@@ -54,6 +57,7 @@ export default function Home() {
           }
         </div>
       </div>
+
     </>
   )
 }
