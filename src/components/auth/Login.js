@@ -1,8 +1,8 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Button, IconButton, Snackbar, TextField, Typography } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+import { Button, TextField, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import Alert from '../Alert';
 
 export default function Login({setPW, setUsername, submitForm, username, password, errorMsg, handleClose}) {
   const classes = useStyles();
@@ -43,21 +43,7 @@ export default function Login({setPW, setUsername, submitForm, username, passwor
         <div className={classes.meta}>
           <p style={{color: 'white'}}>Don't have an account yet? <Link style={{color: 'var(--highlight)'}} to="/register">Sign up.</Link></p>
         </div>
-        <Snackbar
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
-          }}
-          open={!!errorMsg}
-          autoHideDuration={6000}
-          onClose={handleClose}
-          message={errorMsg}
-          action={
-            <IconButton size="small" aria-label="close" style={{color: "white"}} onClick={handleClose}>
-              <CloseIcon fontSize="small" />
-            </IconButton>
-          }
-        />
+        <Alert errorMsg={errorMsg} handleClose={handleClose}/>
       </div>
     </div>
   )

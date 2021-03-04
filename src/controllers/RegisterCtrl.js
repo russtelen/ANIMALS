@@ -8,6 +8,7 @@ export default function RegisterCtrl() {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPW] = useState("")
+  const [errorMsg, setErrorMsg]= useState("")
   const history = useHistory()
   const authContext = useAuth()
   const { setUserData } = authContext
@@ -28,9 +29,17 @@ export default function RegisterCtrl() {
 
       history.push("/")
     } catch (error) {
+      setErrorMsg(error.message)
       console.log(error)
     }
   }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setErrorMsg("");
+  };
 
   return (
     <Register 
@@ -41,6 +50,8 @@ export default function RegisterCtrl() {
       username={username}
       email={email}
       password={password}
+      errorMsg={errorMsg}
+      handleClose={handleClose}
     />
   )
 }

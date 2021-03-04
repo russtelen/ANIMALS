@@ -2,8 +2,9 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, TextField, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import Alert from '../Alert';
 
-export default function Register({setUsername, setPW, setEmail, submitForm, username, email, password}) {
+export default function Register({setUsername, setPW, setEmail, submitForm, username, email, password, errorMsg, handleClose}) {
   const classes = useStyles();
 
   return (
@@ -58,6 +59,7 @@ export default function Register({setUsername, setPW, setEmail, submitForm, user
         <div className={classes.meta}>
           <p style={{color: 'white'}}>Already have an account? <Link style={{color: 'var(--highlight)'}} to="/login">Log in.</Link></p>
         </div>
+        <Alert errorMsg={errorMsg} handleClose={handleClose}/>
       </div>
     </div>
   )
