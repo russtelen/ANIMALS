@@ -63,6 +63,7 @@ export default function Home() {
             <AnimalFormCtrl
               animalProp={selectedAnimal}
               setEditMode={(bool) => setEditMode(bool)}
+              clearAnimal={clearSelectedAnimal}
             />
           }
         </div>

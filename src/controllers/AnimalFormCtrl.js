@@ -35,7 +35,7 @@ const fields = [
   },
 ]
 
-export default function AnimalFormCtrl({setEditMode, animalProp}) {
+export default function AnimalFormCtrl({setEditMode, animalProp, clearAnimal}) {
   const AnimalsContext = useAnimals()
   const { addAnimal, patchAnimal } = AnimalsContext
   let animal = {};
@@ -67,7 +67,13 @@ export default function AnimalFormCtrl({setEditMode, animalProp}) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    animalProp && animalProp.animalId ? patchAnimal(animalData, animalProp) : addAnimal(animalData)
+    if (animalProp && animalProp.animalId) {
+      patchAnimal(animalData, animalProp)
+      clearAnimal()
+    } else {
+      addAnimal(animalData)
+    }
+    
     setEditMode(false)
   }
 

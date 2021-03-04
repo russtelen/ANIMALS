@@ -2,7 +2,7 @@ import { IconButton, Snackbar } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { useAnimals } from '../context/Animals'
 
-export default function Alert({ handleClose}){
+export default function Alert({ handleClose }) {
   const AnimalsContext = useAnimals()
   const { message, error } = AnimalsContext
 

@@ -32,14 +32,14 @@ export function AnimalsProvider({children}){
     try {
       const object = ({...animalData, animalId: uuid()})
       const result = await createAnimal(object)
-      console.log(result)
+      console.log("Created animal", result)
       setMessage(result.message)
       setError(false)
       queryAllAnimals()
     } catch (error) {
       setMessage(error.message)
       setError(true)
-      console.log(error)
+      console.log(error.message)
     }
   }
 
@@ -47,14 +47,14 @@ export function AnimalsProvider({children}){
     try {
       const object = ({...animalData, animalId: animalProp.animalId})
       const result = await updateAnimal(object)
-      console.log(result)
+      console.log("Update animal", result)
       setMessage(result.message)
       setError(false)
       queryAllAnimals()
     } catch (error) {
       setMessage(error.message)
       setError(true)
-      console.log(error)
+      console.log(error.message)
     }
   }
 
