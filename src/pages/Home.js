@@ -3,11 +3,14 @@ import AnimalsTableCtrl from '../controllers/AnimalsTableCtrl'
 import AnimalFormCtrl from '../controllers/AnimalFormCtrl'
 import AnimalDetailCtrl from '../controllers/AnimalDetailCtrl'
 import { useAnimals } from '../context/Animals'
+import { useAuth } from '../context/Auth'
 import '../styles/pages/home.css'
 
 export default function Home() {
   const [selectedAnimal, setSelectedAnimal] = useState(null)
   const [editMode, setEditMode] = useState(false)
+  const authContext = useAuth()
+  const { isAuthenticated } = authContext
   const AnimalsContext = useAnimals()
   const { animals } = AnimalsContext
 
@@ -32,7 +35,7 @@ export default function Home() {
         </div>
         <div className="column sidebar">
           {
-            !selectedAnimal &&
+            !selectedAnimal && isAuthenticated &&
             <div className="card__actions">
               <button className="primary" style={{marginBottom: 10}}onClick={() => setEditMode(true)}>+ Add Animal</button>
             </div>

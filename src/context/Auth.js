@@ -16,6 +16,10 @@ export function AuthProvider({children}){
     isAuthenticated
   }
 
+  useEffect(() => {
+    !userData ? setAuthentication(false) : setAuthentication(true)
+  }, [userData])
+
   return (
     <AuthContext.Provider value={value}>
       { children }

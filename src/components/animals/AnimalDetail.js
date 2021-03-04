@@ -1,7 +1,10 @@
 import React from 'react'
 import '../../styles/components/card.css'
+import { useAuth } from '../../context/Auth'
 
 export default function AnimalDetail({animal, clearAnimal, setEditMode}) {
+  const authContext = useAuth()
+  const { isAuthenticated } = authContext
   return (
     <div className="detail__card">
       <div className="detail__img">
@@ -22,7 +25,10 @@ export default function AnimalDetail({animal, clearAnimal, setEditMode}) {
         </div>
       </div>
       <div className="card__actions detail">
-        <button onClick={setEditMode}className="primary">Edit</button>
+        {
+          isAuthenticated &&
+          <button onClick={setEditMode}className="primary">Edit</button>
+        }
         <button onClick={() => clearAnimal()} className="danger">Cancel</button>
       </div>
     </div>

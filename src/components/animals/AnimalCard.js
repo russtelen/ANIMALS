@@ -1,8 +1,12 @@
 import React from 'react'
 import { Pin } from '../../icons'
 import '../../styles/components/card.css'
+import { useAuth } from '../../context/Auth'
 
 export default function AnimalCard({animal, selectAnimal, setEditMode, handleDelete}) {
+  const authContext = useAuth()
+  const { isAuthenticated } = authContext
+
   return (
     <li className="card">
       <div className="card__img">
@@ -19,9 +23,12 @@ export default function AnimalCard({animal, selectAnimal, setEditMode, handleDel
               selectAnimal({id: animal.animalId})
               setEditMode(false)
             }}>View</button>
-            <button className="danger" onClick={() => {
-              handleDelete({id: animal.animalId})
-            }}>Delete</button>
+            {
+              isAuthenticated &&
+              <button className="danger" onClick={() => {
+                handleDelete({id: animal.animalId})
+              }}>Delete</button>
+            }
           </div>
         </div>
       </div>
