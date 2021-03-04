@@ -18,7 +18,6 @@ export default function Register({setUsername, setPW, setEmail, submitForm, user
             value={username} 
             onChange={e => setUsername(e.target.value)} 
             className={classes.field}
-            color="tertiary"
             InputProps={{
               className: classes.field
             }}
@@ -32,7 +31,6 @@ export default function Register({setUsername, setPW, setEmail, submitForm, user
             value={email}
             onChange={e => setEmail(e.target.value)} 
             className={classes.field}
-            color="tertiary"
             InputProps={{
               className: classes.field
             }}
@@ -46,7 +44,6 @@ export default function Register({setUsername, setPW, setEmail, submitForm, user
             onChange={e => setPW(e.target.value)} 
             type="password" variant="filled" 
             className={classes.field}
-            color="tertiary"
             InputProps={{
               className: classes.field
             }}

@@ -9,6 +9,8 @@ export function useAnimals(){
 
 export function AnimalsProvider({children}){
   const [animals, setAnimals] = useState([])
+  const [message, setMessage] = useState("")
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     queryAllAnimals()
@@ -18,7 +20,10 @@ export function AnimalsProvider({children}){
     try {
       const results = await getAllAnimals()
       setAnimals(results)
+      setError(false)
     } catch (error) {
+      setMessage(error.message)
+      setError(true)
       console.log(error)
     }
   }
@@ -28,8 +33,12 @@ export function AnimalsProvider({children}){
       const object = ({...animalData, animalId: uuid()})
       const result = await createAnimal(object)
       console.log(result)
+      setMessage(result.message)
+      setError(false)
       queryAllAnimals()
     } catch (error) {
+      setMessage(error.message)
+      setError(true)
       console.log(error)
     }
   }
@@ -39,9 +48,12 @@ export function AnimalsProvider({children}){
       const object = ({...animalData, animalId: animalProp.animalId})
       const result = await updateAnimal(object)
       console.log(result)
-      // add snackbar for show message - result.message
+      setMessage(result.message)
+      setError(false)
       queryAllAnimals()
     } catch (error) {
+      setMessage(error.message)
+      setError(true)
       console.log(error)
     }
   }
@@ -51,7 +63,11 @@ export function AnimalsProvider({children}){
     animals,
     queryAllAnimals,
     addAnimal,
-    patchAnimal
+    patchAnimal,
+    message,
+    setMessage,
+    error,
+    setError
   }
 
   return (

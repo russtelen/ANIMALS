@@ -29,6 +29,10 @@ form {
   background: #262626;
 }
 
-.MuiSnackbarContent-root {
-  background-color: red !important;
+.error .MuiSnackbarContent-root {
+  background-color: #bb0f0f !important;
+}
+
+.success .MuiSnackbarContent-root {
+  background-color: #509450 !important;
 }
