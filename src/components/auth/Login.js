@@ -15,7 +15,7 @@ export default function Login() {
   return (
     <div>
       <div className={classes.root}>
-        <Typography variant="h6">Login</Typography>
+        <Typography variant="h6" style={{color: "white"}}>Login</Typography>
         <form onSubmit={submitForm}>
           <TextField label="Email" variant="filled" onChange={e => setEmail(e.target.value)} className={classes.field}/>
           <TextField label="Password" onChange={e => setPW(e.target.value)} type="password" variant="filled" className={classes.field}/>
