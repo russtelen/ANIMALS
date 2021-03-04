@@ -1,6 +1,6 @@
 import React from 'react'
 import AnimalCard from './AnimalCard'
-import '../styles/components/card-list.css'
+import '../../styles/components/card-list.css'
 
 export default function AnimalsTable({animals, selectAnimal, setEditMode, handleDelete}) {
   return (

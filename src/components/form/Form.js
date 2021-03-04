@@ -1,7 +1,7 @@
 import React from 'react'
 import FormInput from './FormInput'
-import { camelize } from '../utility'
-import '../styles/components/forms.css'
+import { camelize } from '../../utility'
+import '../../styles/components/forms.css'
 
 export default function AnimalForm({ stateData, fields, onChange, onSubmit, setEditMode }) {
   return (

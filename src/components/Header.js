@@ -1,60 +1,31 @@
-import React, { useState } from 'react';
-import {AppBar, Button, IconButton, Menu, MenuItem, Toolbar, Typography} from '@material-ui/core';
+import React from 'react';
+import {AppBar, Button, IconButton, Toolbar, Typography} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { useHistory } from 'react-router-dom'
+import { useAuth } from '../context/Auth'
 import '../styles/components/header.css'
 
-export default function Header() {
+export default function Header({signOut}) {
   const classes = useStyles();
-  const [auth, setAuth] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+  const authContext = useAuth()
+  const { isAuthenticated, userData } = authContext
   const history = useHistory();
-
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
-  };
-
-  const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   return (
     <header className={classes.root}>
       <AppBar position="static" style={{backgroundColor: "#313131"}}>
         <Toolbar>
-          {
-            auth &&
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-          }
           <Typography variant="h6" className={classes.title} onClick={() => history.push("/")}>
             Animals
           </Typography>
-          {auth ? 
+          {isAuthenticated ? 
             <div>
-              <IconButton aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleMenu} color="inherit">
+              { userData?.username }
+              <IconButton aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" color="inherit">
                 <AccountCircle />
-              </IconButton>
-              <Menu id="menu-appbar" keepMounted open={open} onClose={handleClose} anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}>
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-              </Menu>
+              </IconButton> | &nbsp;
+              <Button color="inherit" onClick={() => signOut()}>Signout</Button>
             </div>
             :
             <div>

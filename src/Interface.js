@@ -1,7 +1,7 @@
 import { Switch, Route, Redirect } from "react-router-dom";
 import Header from './components/Header'
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Home from './pages/Home'
 
 const PrivateRoute = ({path, children}) => (
