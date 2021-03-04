@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 export default function LoginCtrl() {
   const [username, setUsername] = useState("")
   const [password, setPW] = useState("")
+  const [errorMsg, setErrorMsg]= useState("")
   const history = useHistory()
   const authContext = useAuth()
   const { setUserData } = authContext
@@ -22,9 +23,17 @@ export default function LoginCtrl() {
 
       history.push("/")
     } catch (error) {
+      setErrorMsg(error.message)
       console.log(error)
     }
   }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setErrorMsg("");
+  };
 
   return (
     <Login 
@@ -33,6 +42,8 @@ export default function LoginCtrl() {
       submitForm={submitForm}
       username={username}
       password={password}
+      errorMsg={errorMsg}
+      handleClose={handleClose}
     />
   )
 }

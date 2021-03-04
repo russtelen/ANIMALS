@@ -28,3 +28,7 @@ form {
   border: solid 2px #333;
   background: #262626;
 }
+
+.MuiSnackbarContent-root {
+  background-color: red !important;
+}
