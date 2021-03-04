@@ -5,10 +5,13 @@ import AnimalDetailCtrl from '../controllers/AnimalDetailCtrl'
 import { useAnimals } from '../context/Animals'
 import { useAuth } from '../context/Auth'
 import '../styles/pages/home.css'
+import Alert from '../components/Alert'
 
 export default function Home() {
+
   const [selectedAnimal, setSelectedAnimal] = useState(null)
   const [editMode, setEditMode] = useState(false)
+  const [message, setMessage] = useState("")
   const authContext = useAuth()
   const { isAuthenticated } = authContext
   const AnimalsContext = useAnimals()
@@ -22,6 +25,14 @@ export default function Home() {
   const clearSelectedAnimal = () => {
     setSelectedAnimal(null)
   }
+
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setMessage("");
+  };
 
   return (
     <>
@@ -57,7 +68,7 @@ export default function Home() {
           }
         </div>
       </div>
-
+      <Alert handleClose={handleClose} errorMsg={message} />
     </>
   )
 }

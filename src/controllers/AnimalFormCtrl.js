@@ -39,7 +39,7 @@ const fields = [
 
 export default function AnimalFormCtrl({setEditMode, animalProp}) {
   const AnimalsContext = useAnimals()
-  const { queryAllAnimals } = AnimalsContext
+  const { queryAllAnimals, addAnimal, patchAnimal } = AnimalsContext
   let animal = {};
 
   /* 
@@ -61,27 +61,28 @@ export default function AnimalFormCtrl({setEditMode, animalProp}) {
   // animalDate state computed from fields data above.
   const [animalData, setAnimal] = useState(initialState);
 
-  const addAnimal = async () => {
-    try {
-      const object = ({...animalData, animalId: uuid()})
-      const result = await createAnimal(object)
-      console.log(result)
-      queryAllAnimals()
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const addAnimal = async () => {
+  //   try {
+  //     const object = ({...animalData, animalId: uuid()})
+  //     const result = await createAnimal(object)
+  //     console.log(result)
+  //     queryAllAnimals()
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
-  const patchAnimal = async () => {
-    try {
-      const object = ({...animalData, animalId: animalProp.animalId})
-      const result = await updateAnimal(object)
-      console.log(result)
-      queryAllAnimals()
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // const patchAnimal = async () => {
+  //   try {
+  //     const object = ({...animalData, animalId: animalProp.animalId})
+  //     const result = await updateAnimal(object)
+  //     console.log(result)
+  //     // add snackbar for show message - result.message
+  //     queryAllAnimals()
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
   const handleInputChange = (event) => {
     event.preventDefault()
@@ -91,10 +92,8 @@ export default function AnimalFormCtrl({setEditMode, animalProp}) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    animalProp && animalProp.animalId ?
-      patchAnimal()
-    :
-      addAnimal()
+    animalProp && animalProp.animalId ? patchAnimal(animalData, animalProp) : addAnimal(animalData)
+    setEditMode(false)
   }
 
   return (
