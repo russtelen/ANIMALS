@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import Form from '../components/form/Form'
 import { camelize } from '../utility'
-import { createAnimal, updateAnimal } from '../network'
-import { v4 as uuid } from 'uuid'
 import { useAnimals } from '../context/Animals'
 
 // Initialize fields with an input type.
@@ -37,9 +35,9 @@ const fields = [
   },
 ]
 
-export default function AnimalFormCtrl({setEditMode, animalProp}) {
+export default function AnimalFormCtrl({setEditMode, animalProp, clearAnimal}) {
   const AnimalsContext = useAnimals()
-  const { queryAllAnimals } = AnimalsContext
+  const { addAnimal, patchAnimal } = AnimalsContext
   let animal = {};
 
   /* 
@@ -61,28 +59,6 @@ export default function AnimalFormCtrl({setEditMode, animalProp}) {
   // animalDate state computed from fields data above.
   const [animalData, setAnimal] = useState(initialState);
 
-  const addAnimal = async () => {
-    try {
-      const object = ({...animalData, animalId: uuid()})
-      const result = await createAnimal(object)
-      console.log(result)
-      queryAllAnimals()
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const patchAnimal = async () => {
-    try {
-      const object = ({...animalData, animalId: animalProp.animalId})
-      const result = await updateAnimal(object)
-      console.log(result)
-      queryAllAnimals()
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   const handleInputChange = (event) => {
     event.preventDefault()
     const { name, value } = event.target;
@@ -91,10 +67,14 @@ export default function AnimalFormCtrl({setEditMode, animalProp}) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    animalProp && animalProp.animalId ?
-      patchAnimal()
-    :
-      addAnimal()
+    if (animalProp && animalProp.animalId) {
+      patchAnimal(animalData, animalProp)
+      clearAnimal()
+    } else {
+      addAnimal(animalData)
+    }
+    
+    setEditMode(false)
   }
 
   return (

@@ -28,3 +28,11 @@ form {
   border: solid 2px #333;
   background: #262626;
 }
+
+.error .MuiSnackbarContent-root {
+  background-color: #bb0f0f !important;
+}
+
+.success .MuiSnackbarContent-root {
+  background-color: #509450 !important;
+}

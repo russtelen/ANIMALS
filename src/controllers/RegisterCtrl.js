@@ -3,6 +3,7 @@ import Register from '../components/auth/Register'
 import { Auth } from 'aws-amplify';
 import { useAuth } from '../context/Auth'
 import { useHistory } from 'react-router-dom';
+import { useAnimals } from '../context/Animals'
 
 export default function RegisterCtrl() {
   const [username, setUsername] = useState("")
@@ -11,11 +12,12 @@ export default function RegisterCtrl() {
   const history = useHistory()
   const authContext = useAuth()
   const { setUserData } = authContext
+  const AnimalsContext = useAnimals()
+  const { setMessage, setError } = AnimalsContext
 
   const submitForm = async (e) => {
     e.preventDefault()
     try {
-
       const response = await Auth.signUp({
         username,
         password,
@@ -25,12 +27,22 @@ export default function RegisterCtrl() {
       })
       
       setUserData({username: response.user.username})
-
+      setMessage(response.message)
+      setError(false)
       history.push("/")
     } catch (error) {
-      console.log(error)
+      setMessage(error.message)
+      setError(true)
+      console.log(error.message)
     }
   }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setMessage("");
+  };
 
   return (
     <Register 
@@ -41,6 +53,7 @@ export default function RegisterCtrl() {
       username={username}
       email={email}
       password={password}
+      handleClose={handleClose}
     />
   )
 }

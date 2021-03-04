@@ -14,7 +14,7 @@ export default function AnimalCard({animal, selectAnimal, setEditMode, handleDel
       </div>
       <div style={{width: '100%', padding: '20px'}}>
         <h2 className="card__header">{animal.animalName}</h2>
-        <p className="card__meta id">Id: {animal.animalId}</p>
+        {/* <p className="card__meta id">Id: {animal.animalId}</p> */}
         <p className="card__meta"><Pin/> {animal.sanctuary}</p>
         <div className="flex">
           <span className="card__info">{animal.animalType}</span>

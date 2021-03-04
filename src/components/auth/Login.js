@@ -2,8 +2,9 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, TextField, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import Alert from '../Alert';
 
-export default function Login({setPW, setUsername, submitForm, username, password}) {
+export default function Login({setPW, setUsername, submitForm, username, password, handleClose}) {
   const classes = useStyles();
 
   return (
@@ -17,7 +18,6 @@ export default function Login({setPW, setUsername, submitForm, username, passwor
             value={username} 
             onChange={e => setUsername(e.target.value)} 
             className={classes.field}
-            color="tertiary"
             InputProps={{
               className: classes.field
             }}
@@ -31,7 +31,6 @@ export default function Login({setPW, setUsername, submitForm, username, passwor
             onChange={e => setPW(e.target.value)} 
             type="password" variant="filled" 
             className={classes.field}
-            color="tertiary"
             InputProps={{
               className: classes.field
             }}
@@ -44,6 +43,7 @@ export default function Login({setPW, setUsername, submitForm, username, passwor
         <div className={classes.meta}>
           <p style={{color: 'white'}}>Don't have an account yet? <Link style={{color: 'var(--highlight)'}} to="/register">Sign up.</Link></p>
         </div>
+        <Alert handleClose={handleClose}/>
       </div>
     </div>
   )
