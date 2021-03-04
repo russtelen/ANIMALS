@@ -1,8 +1,6 @@
 .card {
-  /* margin: 0 20px; */
   position: relative;
   display: flex;
-  /* padding: 17px 0; */
   border-bottom: 1px solid #333;
 }
 
@@ -31,10 +29,7 @@
   height: auto;
   width: 20%;
   min-width: 150px;
-  margin-right: 20px;
   overflow: hidden;
-  /* border: 3px solid #333; */
-  right: calc(100% - 20px);
 }
 
 .card__img img {
