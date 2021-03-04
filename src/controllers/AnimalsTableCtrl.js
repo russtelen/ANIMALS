@@ -1,5 +1,5 @@
 import React from 'react'
-import AnimalsTable from '../components/AnimalsTable'
+import AnimalsTable from '../components/animals/AnimalsTable'
 import { useAnimals } from '../context/Animals'
 import { deleteAnimal } from '../network'
 

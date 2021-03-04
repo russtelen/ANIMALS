@@ -1,6 +1,6 @@
 import React from 'react'
-import { camelize, capitalize } from '../utility'
-import '../styles/components/form-inputs.css'
+import { camelize, capitalize } from '../../utility'
+import '../../styles/components/form-inputs.css'
 
 export default function FormInput({label, type, onChange, value}) {
   return (
