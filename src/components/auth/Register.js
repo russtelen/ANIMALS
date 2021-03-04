@@ -1,18 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, TextField, Typography } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-export default function Register() {
+export default function Register({setUsername, setPW, setEmail, submitForm, username, email, password}) {
   const classes = useStyles();
-  const [password, setPW] = useState("")
-  const [email, setEmail] = useState("")
-  const [username, setUsername] = useState("")
-
-  const submitForm = async (e) => {
-    e.preventDefault()
-
-  }
 
   return (
     <div>
@@ -21,7 +13,8 @@ export default function Register() {
           <Typography className={classes.title} variant="h6">Register</Typography>
           <TextField 
             label="Username" 
-            variant="filled" 
+            variant="filled"
+            value={username} 
             onChange={e => setUsername(e.target.value)} 
             className={classes.field}
             color="tertiary"
@@ -35,6 +28,7 @@ export default function Register() {
           <TextField 
             label="Email" 
             variant="filled" 
+            value={email}
             onChange={e => setEmail(e.target.value)} 
             className={classes.field}
             color="tertiary"
@@ -46,7 +40,8 @@ export default function Register() {
             }}
           />
           <TextField 
-            label="Password" 
+            label="Password"
+            value={password} 
             onChange={e => setPW(e.target.value)} 
             type="password" variant="filled" 
             className={classes.field}
